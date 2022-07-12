@@ -1,4 +1,3 @@
-import functools
 from datetime import datetime
 now = datetime.now()
 
@@ -23,7 +22,6 @@ def logger(func):
 
 def path_logger(path):
     def decorator(func):
-        @functools.wraps(func)
         def new_path_function(*args, **kwargs):
             with open(path + 'log.txt', 'w', encoding='utf-8') as log_file:
                 log_file.write(f'Дата и время вызова функции: {now.strftime("%m/%d/%Y, %H:%M:%S")}\n')
@@ -52,4 +50,4 @@ def power(a, b):
 
 
 print(mul(2, 6))
-print(power(3, 4))
+print(power(5, 4))
